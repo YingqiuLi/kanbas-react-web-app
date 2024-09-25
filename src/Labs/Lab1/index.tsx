@@ -163,7 +163,7 @@ export default function Lab1() {
                 <br />
                 Loading a local image:
                 <br />
-                <img id="wd-teslabot" src="images/teslabot.jpg" height="200px" alt="wd-teslabot"/>
+                <img id="wd-teslabot" src="/Users/sue_lyq/2024/kanbas-react-web-app/src/Labs/images/teslabot.jpg" height="200px" alt="wd-teslabot"/>
             </div>
             <div id="wd-forms">
                 <h4>Form Elements</h4>

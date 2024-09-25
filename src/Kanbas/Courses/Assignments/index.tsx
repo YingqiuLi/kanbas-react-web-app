@@ -13,26 +13,25 @@ export default function Assignments() {
               A1 - ENV + HTML
             </a>
           </li>
+          <p>Multiple Modules | <strong>Not available until</strong> May 6 at 12:00am | <p>
+          </p><strong>Due</strong> May 13 at 11:59pm | 100 pts</p>
+
           <li className="wd-assignment-list-item">
             <a className="wd-assignment-link" href="#/Kanbas/Courses/1234/Assignments/124">
-              A2 - CSS Basics
+              A2 - CSS + BOOTSTRAP
             </a>
           </li>
+          <p>Multiple Modules | <strong>Not available until</strong> May 13 at 12:00am | <p>
+          </p><strong>Due</strong> May 20 at 11:59pm | 100 pts</p>
+
           <li className="wd-assignment-list-item">
             <a className="wd-assignment-link" href="#/Kanbas/Courses/1234/Assignments/125">
-              A3 - JavaScript Intro
+              A3 - JAVASCRIPT + REACT
             </a>
           </li>
-          <li className="wd-assignment-list-item">
-            <a className="wd-assignment-link" href="#/Kanbas/Courses/1234/Assignments/126">
-              A4 - React Components
-            </a>
-          </li>
-          <li className="wd-assignment-list-item">
-            <a className="wd-assignment-link" href="#/Kanbas/Courses/1234/Assignments/127">
-              A5 - API Integration
-            </a>
-          </li>
+          <p>Multiple Modules | <strong>Not available until</strong> May 20 at 12:00am | <p>
+          </p><strong>Due</strong> May 27 at 11:59pm | 100 pts</p>
+  
         </ul>
       </div>
     );

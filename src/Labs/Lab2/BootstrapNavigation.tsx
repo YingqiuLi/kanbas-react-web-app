@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 export default function BootstrapNavigation() {
   return (<><div id="wd-css-navigating-with-tabs">
   <h2>Tabs</h2>
@@ -24,7 +25,7 @@ export default function BootstrapNavigation() {
   <div className="card"
        style={{ width: "18rem" }}>
     <img src="images/stacked.jpg"
-         className="card-img-top" />
+         className="card-img-top" alt=""/>
     <div className="card-body">
       <h5 className="card-title">
           Stacking Starship

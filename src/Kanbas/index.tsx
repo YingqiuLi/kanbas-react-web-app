@@ -3,8 +3,6 @@ import Account from "./Account";
 import Dashboard from "../Dashboard";
 import KanbasNavigation from "./Navigation";
 import Courses from "./Courses";
-import React from "react";
-import ReactDOM from "react-dom/client";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "./styles.css";

@@ -119,8 +119,8 @@ export default function AssignmentEditor() {
 
       {/* Bottom buttons */}
       <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '20px' }}>
-        <button style={{ marginRight: '10px' }}>Cancel</button>
-        <button>Save</button>
+        <button className="btn btn-secondary me-2">Cancel</button>
+        <button className="btn btn-danger text-white">Save</button>
       </div>
     </div>
   );

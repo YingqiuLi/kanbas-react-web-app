@@ -4,17 +4,17 @@ import { IoCalendarOutline } from "react-icons/io5";
 import { LiaBookSolid, LiaCogSolid } from "react-icons/lia";
 import { FaInbox, FaRegCircleUser } from "react-icons/fa6";
 
-export default function CoursesNavigation() {
+export default function DashboardNavigation() {
   const location = useLocation();
 
   // Helper function to determine if a link is active
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) => location.pathname.startsWith(path);
 
   return (
     <div className="d-flex position-fixed bottom-0 top-0 bg-black z-2 start-0">
 
       {/* Logo-Based Sidebar */}
-      <div id="wd-courses-navigation-icons" style={{ width: 110 }}
+      <div id="wd-dashboard-navigation-icons" style={{ width: 110 }}
            className="list-group rounded-0 bg-black d-none d-md-block">
         
         {/* Account Link */}
@@ -58,65 +58,41 @@ export default function CoursesNavigation() {
           <LiaCogSolid className={`fs-1 ${isActive("/Labs") ? "text-danger" : "text-white"}`} /><br />
           Labs
         </Link><br />
-        
       </div>
 
-      {/* Text-Based Module Sidebar */}
-      <div id="wd-courses-navigation" className="wd list-group fs-5 rounded-0 bg-white d-none d-md-block" style={{ width: '150px'}}>
+      {/* Dashboard Text-Based Sidebar */}
+      <div id="wd-dashboard-navigation" className="list-group fs-5 rounded-0 bg-white d-none d-md-block" style={{ width: '150px'}}>
         
-        {/* Home Link */}
-        <Link to="/Kanbas/Courses/1234/Home" id="wd-course-home-link" style={{ marginLeft: '5px'}}
-          className={`list-group-item border-0 ${isActive("/Kanbas/Courses/1234/Home") ? "active" : "text-danger"}`}>
-          Home
+        {/* Overview Link */}
+        <Link to="/Kanbas/Dashboard/Overview" id="wd-dashboard-overview-link" style={{ marginLeft: '5px'}}
+          className={`list-group-item border-0 ${isActive("/Kanbas/Dashboard/Overview") ? "active" : "text-danger"}`}>
+          Overview
         </Link>
 
-        {/* Modules Link */}
-        <Link to="/Kanbas/Courses/1234/Modules" id="wd-course-modules-link" style={{ marginLeft: '5px'}}
-          className={`list-group-item border-0 ${isActive("/Kanbas/Courses/1234/Modules") ? "active" : "text-danger"}`}>
-          Modules
+        {/* To-Do Link */}
+        <Link to="/Kanbas/Dashboard/ToDo" id="wd-dashboard-todo-link" style={{ marginLeft: '5px'}}
+          className={`list-group-item border-0 ${isActive("/Kanbas/Dashboard/ToDo") ? "active" : "text-danger"}`}>
+          To-Do
         </Link>
 
-        {/* Piazza Link */}
-        <Link to="/Kanbas/Courses/1234/Piazza" id="wd-course-piazza-link" style={{ marginLeft: '5px'}}
-          className={`list-group-item border-0 ${isActive("/Kanbas/Courses/1234/Piazza") ? "active" : "text-danger"}`}>
-          Piazza
+        {/* Calendar Link */}
+        <Link to="/Kanbas/Dashboard/Calendar" id="wd-dashboard-calendar-link" style={{ marginLeft: '5px'}}
+          className={`list-group-item border-0 ${isActive("/Kanbas/Dashboard/Calendar") ? "active" : "text-danger"}`}>
+          Calendar
         </Link>
 
-        {/* Zoom Link */}
-        <Link to="/Kanbas/Courses/1234/Zoom" id="wd-course-zoom-link" style={{ marginLeft: '5px'}}
-          className={`list-group-item border-0 ${isActive("/Kanbas/Courses/1234/Zoom") ? "active" : "text-danger"}`}>
-          Zoom
+        {/* Notifications Link */}
+        <Link to="/Kanbas/Dashboard/Notifications" id="wd-dashboard-notifications-link" style={{ marginLeft: '5px'}}
+          className={`list-group-item border-0 ${isActive("/Kanbas/Dashboard/Notifications") ? "active" : "text-danger"}`}>
+          Notifications
         </Link>
 
-        {/* Assignments Link */}
-        <Link to="/Kanbas/Courses/1234/Assignments" id="wd-course-assignments-link" style={{ marginLeft: '5px'}}
-          className={`list-group-item border-0 ${isActive("/Kanbas/Courses/1234/Assignments") ? "active" : "text-danger"}`}>
-          Assignments
+        {/* Messages Link */}
+        <Link to="/Kanbas/Dashboard/Messages" id="wd-dashboard-messages-link" style={{ marginLeft: '5px'}}
+          className={`list-group-item border-0 ${isActive("/Kanbas/Dashboard/Messages") ? "active" : "text-danger"}`}>
+          Messages
         </Link>
 
-        {/* Quizzes Link */}
-        <Link to="/Kanbas/Courses/1234/Quizzes" id="wd-course-quizzes-link" style={{ marginLeft: '5px'}}
-          className={`list-group-item border-0 ${isActive("/Kanbas/Courses/1234/Quizzes") ? "active" : "text-danger"}`}>
-          Quizzes
-        </Link>
-
-        {/* Grades Link */}
-        <Link to="/Kanbas/Courses/1234/Grades" id="wd-course-grades-link" style={{ marginLeft: '5px'}}
-          className={`list-group-item border-0 ${isActive("/Kanbas/Courses/1234/Grades") ? "active" : "text-danger"}`}>
-          Grades
-        </Link>
-
-        {/* People Link */}
-        <Link to="/Kanbas/Courses/1234/People" id="wd-course-people-link" style={{ marginLeft: '5px'}}
-          className={`list-group-item border-0 ${isActive("/Kanbas/Courses/1234/People") ? "active" : "text-danger"}`}>
-          People
-        </Link>
-
-        {/* Settings Link */}
-        <Link to="/Kanbas/Courses/1234/People" id="wd-course-people-link" style={{ marginLeft: '5px'}}
-          className={`list-group-item border-0 ${isActive("/Kanbas/Courses/1234/People") ? "active" : "text-danger"}`}>
-          Settings
-        </Link>
       </div>
       
     </div>

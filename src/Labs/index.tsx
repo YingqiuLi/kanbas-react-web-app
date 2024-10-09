@@ -7,7 +7,7 @@ export default function Labs() {
   return (
     <div style={{ marginLeft: '20px' }}>
       <h1>Labs</h1>
-      <p>Yingqiu Li</p>
+      <p>Yingqiu Li (Section 01)</p>
       <TOC />
       <Routes>
         <Route path="/" element={<Navigate to="Lab1" />} />

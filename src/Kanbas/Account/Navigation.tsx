@@ -11,6 +11,13 @@ export default function AccountNavigation() {
   // Helper function to determine if a link is active
   const isActive = (path: string) => location.pathname.startsWith(path);
 
+  // Text-based sidebar links
+  const accountLinks = [
+    { label: "Sign in", path: "/Kanbas/Account/Signin" },
+    { label: "Sign up", path: "/Kanbas/Account/Signup" },
+    { label: "Profile", path: "/Kanbas/Account/Profile" }
+  ];
+
   return (
     <div className="d-flex position-fixed bottom-0 top-0 bg-black z-2 start-0">
 
@@ -61,25 +68,19 @@ export default function AccountNavigation() {
         </Link><br />
       </div>
 
-      {/* Account Text-Based Sidebar */}
-      <div id="wd-account-navigation" className="list-group fs-5 rounded-0 bg-white d-none d-md-block" style={{ width: '150px' }}>
-        {/* Sign in Link */}
-        <Link to="/Kanbas/Account/Signin" id="wd-account-signin-link" style={{ marginLeft: '5px'}}
-          className={`list-group-item border-0 ${isActive("/Kanbas/Account/Signin") ? "active bg-white text-danger" : "text-danger"}`}>
-          Sign in
-        </Link>
-
-        {/* Sign up Link */}
-        <Link to="/Kanbas/Account/Signup" id="wd-account-signup-link" style={{ marginLeft: '5px'}}
-          className={`list-group-item border-0 ${isActive("/Kanbas/Account/Signup") ? "active bg-white text-danger" : "text-danger"}`}>
-          Sign up
-        </Link>
-
-        {/* Profile Link */}
-        <Link to="/Kanbas/Account/Profile" id="wd-account-profile-link" style={{ marginLeft: '5px'}}
-          className={`list-group-item border-0 ${isActive("/Kanbas/Account/Profile") ? "active bg-white text-danger" : "text-danger"}`}>
-          Profile
-        </Link>
+      {/* Account Text-Based Sidebar (Dynamically Mapped) */}
+      <div id="wd-account-navigation" className="wd list-group fs-5 rounded-0 bg-white d-none d-md-block" style={{ width: '150px' }}>
+        {accountLinks.map((link, index) => (
+          <Link
+            to={link.path}
+            key={index}
+            id={`wd-account-${link.label.toLowerCase().replace(/\s+/g, '-')}-link`}
+            style={{ marginLeft: '5px' }}
+            className={`list-group-item border-0 ${isActive(link.path) ? "active" : "text-danger"}`}
+          >
+            {link.label}
+          </Link>
+        ))}
       </div>
       
     </div>

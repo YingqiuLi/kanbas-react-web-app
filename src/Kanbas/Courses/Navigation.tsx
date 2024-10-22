@@ -1,11 +1,14 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { AiOutlineDashboard } from "react-icons/ai";
 import { IoCalendarOutline } from "react-icons/io5";
 import { LiaBookSolid, LiaCogSolid } from "react-icons/lia";
 import { FaInbox, FaRegCircleUser } from "react-icons/fa6";
 
 export default function CoursesNavigation() {
+  const { cid } = useParams();
   const location = useLocation();
+
+  const textLinks = ["Home", "Modules", "Piazza", "Zoom", "Assignments", "Quizzes", "Grades", "People"];
 
   // Helper function to determine if a link is active
   const isActive = (path: string) => location.pathname === path;
@@ -63,60 +66,17 @@ export default function CoursesNavigation() {
 
       {/* Text-Based Module Sidebar */}
       <div id="wd-courses-navigation" className="wd list-group fs-5 rounded-0 bg-white d-none d-md-block" style={{ width: '150px'}}>
-        
-        {/* Home Link */}
-        <Link to="/Kanbas/Courses/1234/Home" id="wd-course-home-link" style={{ marginLeft: '5px'}}
-          className={`list-group-item border-0 ${isActive("/Kanbas/Courses/1234/Home") ? "active" : "text-danger"}`}>
-          Home
-        </Link>
-
-        {/* Modules Link */}
-        <Link to="/Kanbas/Courses/1234/Modules" id="wd-course-modules-link" style={{ marginLeft: '5px'}}
-          className={`list-group-item border-0 ${isActive("/Kanbas/Courses/1234/Modules") ? "active" : "text-danger"}`}>
-          Modules
-        </Link>
-
-        {/* Piazza Link */}
-        <Link to="/Kanbas/Courses/1234/Piazza" id="wd-course-piazza-link" style={{ marginLeft: '5px'}}
-          className={`list-group-item border-0 ${isActive("/Kanbas/Courses/1234/Piazza") ? "active" : "text-danger"}`}>
-          Piazza
-        </Link>
-
-        {/* Zoom Link */}
-        <Link to="/Kanbas/Courses/1234/Zoom" id="wd-course-zoom-link" style={{ marginLeft: '5px'}}
-          className={`list-group-item border-0 ${isActive("/Kanbas/Courses/1234/Zoom") ? "active" : "text-danger"}`}>
-          Zoom
-        </Link>
-
-        {/* Assignments Link */}
-        <Link to="/Kanbas/Courses/1234/Assignments" id="wd-course-assignments-link" style={{ marginLeft: '5px'}}
-          className={`list-group-item border-0 ${isActive("/Kanbas/Courses/1234/Assignments") ? "active" : "text-danger"}`}>
-          Assignments
-        </Link>
-
-        {/* Quizzes Link */}
-        <Link to="/Kanbas/Courses/1234/Quizzes" id="wd-course-quizzes-link" style={{ marginLeft: '5px'}}
-          className={`list-group-item border-0 ${isActive("/Kanbas/Courses/1234/Quizzes") ? "active" : "text-danger"}`}>
-          Quizzes
-        </Link>
-
-        {/* Grades Link */}
-        <Link to="/Kanbas/Courses/1234/Grades" id="wd-course-grades-link" style={{ marginLeft: '5px'}}
-          className={`list-group-item border-0 ${isActive("/Kanbas/Courses/1234/Grades") ? "active" : "text-danger"}`}>
-          Grades
-        </Link>
-
-        {/* People Link */}
-        <Link to="/Kanbas/Courses/1234/People" id="wd-course-people-link" style={{ marginLeft: '5px'}}
-          className={`list-group-item border-0 ${isActive("/Kanbas/Courses/1234/People") ? "active" : "text-danger"}`}>
-          People
-        </Link>
-
-        {/* Settings Link */}
-        <Link to="/Kanbas/Courses/1234/People" id="wd-course-people-link" style={{ marginLeft: '5px'}}
-          className={`list-group-item border-0 ${isActive("/Kanbas/Courses/1234/People") ? "active" : "text-danger"}`}>
-          Settings
-        </Link>
+        {textLinks.map((name, index) => (
+          <Link
+            to={`/Kanbas/Courses/${cid}/${name}`}
+            key={index}
+            id={`wd-course-${name.toLowerCase()}-link`}
+            style={{ marginLeft: '5px' }}
+            className={`list-group-item border-0 ${isActive(`/Kanbas/Courses/${cid}/${name}`) ? "active" : "text-danger"}`}
+          >
+            {name}
+          </Link>
+        ))}
       </div>
       
     </div>

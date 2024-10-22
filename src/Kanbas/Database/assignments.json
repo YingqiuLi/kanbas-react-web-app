@@ -1,0 +1,93 @@
+[
+    {
+      "_id": "A101",
+      "title": "Propulsion Assignment",
+      "course": "RS101",
+      "modules": "Multiple Modules",
+      "availability": "Not available until May 6 at 12:00am",
+      "due": "May 13 at 11:59pm",
+      "points": 100,
+      "description": "Complete an analysis of rocket propulsion systems, focusing on real-world applications."
+    },
+    {
+      "_id": "A102",
+      "title": "Combustion Analysis",
+      "course": "RS101",
+      "modules": "Multiple Modules",
+      "availability": "Not available until May 13 at 12:00am",
+      "due": "May 20 at 11:59pm",
+      "points": 100,
+      "description": "Analyze the combustion process in rocket engines, and compare efficiency across different fuel types."
+    },
+    {
+      "_id": "A103",
+      "title": "Nozzle Design Project",
+      "course": "RS101",
+      "modules": "Multiple Modules",
+      "availability": "Not available until May 20 at 12:00am",
+      "due": "May 27 at 11:59pm",
+      "points": 100,
+      "description": "Design a rocket nozzle for optimal thrust, and present your findings in a report."
+    },
+    {
+      "_id": "A201",
+      "title": "Aerodynamics Quiz",
+      "course": "RS102",
+      "modules": "Single Module",
+      "availability": "Available now",
+      "due": "May 14 at 11:59pm",
+      "points": 50,
+      "description": "Complete the quiz covering the fundamental principles of aerodynamics."
+    },
+    {
+      "_id": "A202",
+      "title": "Flow Analysis",
+      "course": "RS102",
+      "modules": "Single Module",
+      "availability": "Available now",
+      "due": "May 21 at 11:59pm",
+      "points": 75,
+      "description": "Analyze airflow over a wing and calculate lift-to-drag ratio."
+    },
+    {
+      "_id": "A203",
+      "title": "Heating Analysis",
+      "course": "RS102",
+      "modules": "Single Module",
+      "availability": "Not available until May 15 at 12:00am",
+      "due": "May 28 at 11:59pm",
+      "points": 100,
+      "description": "Analyze aerodynamic heating and recommend thermal protection systems."
+    },
+    {
+      "_id": "A301",
+      "title": "Structural Design Task",
+      "course": "RS103",
+      "modules": "Multiple Modules",
+      "availability": "Available now",
+      "due": "May 18 at 11:59pm",
+      "points": 100,
+      "description": "Design a spacecraft structure to withstand the stresses of launch and re-entry."
+    },
+    {
+      "_id": "A302",
+      "title": "Orbital Calculations",
+      "course": "RS103",
+      "modules": "Single Module",
+      "availability": "Available now",
+      "due": "May 25 at 11:59pm",
+      "points": 100,
+      "description": "Perform calculations to determine the optimal orbital trajectory for a satellite."
+    },
+    {
+      "_id": "A303",
+      "title": "Systems Engineering Exam",
+      "course": "RS103",
+      "modules": "Single Module",
+      "availability": "Available now",
+      "due": "June 1 at 11:59pm",
+      "points": 150,
+      "description": "Complete the final exam on spacecraft systems engineering, covering key topics from the course."
+    }
+  ]
+  

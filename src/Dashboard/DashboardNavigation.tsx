@@ -10,6 +10,15 @@ export default function DashboardNavigation() {
   // Helper function to determine if a link is active
   const isActive = (path: string) => location.pathname.startsWith(path);
 
+  // Text-based sidebar links for dashboard
+  const dashboardLinks = [
+    { label: "Overview", path: "/Kanbas/Dashboard/Overview" },
+    { label: "To-Do", path: "/Kanbas/Dashboard/ToDo" },
+    { label: "Calendar", path: "/Kanbas/Dashboard/Calendar" },
+    { label: "Notifications", path: "/Kanbas/Dashboard/Notifications" },
+    { label: "Messages", path: "/Kanbas/Dashboard/Messages" }
+  ];
+
   return (
     <div className="d-flex position-fixed bottom-0 top-0 bg-black z-2 start-0">
 
@@ -60,41 +69,20 @@ export default function DashboardNavigation() {
         </Link><br />
       </div>
 
-      {/* Dashboard Text-Based Sidebar */}
-      <div id="wd-dashboard-navigation" className="list-group fs-5 rounded-0 bg-white d-none d-md-block" style={{ width: '150px'}}>
-        
-        {/* Overview Link */}
-        <Link to="/Kanbas/Dashboard/Overview" id="wd-dashboard-overview-link" style={{ marginLeft: '5px'}}
-          className={`list-group-item border-0 ${isActive("/Kanbas/Dashboard/Overview") ? "active" : "text-danger"}`}>
-          Overview
-        </Link>
-
-        {/* To-Do Link */}
-        <Link to="/Kanbas/Dashboard/ToDo" id="wd-dashboard-todo-link" style={{ marginLeft: '5px'}}
-          className={`list-group-item border-0 ${isActive("/Kanbas/Dashboard/ToDo") ? "active" : "text-danger"}`}>
-          To-Do
-        </Link>
-
-        {/* Calendar Link */}
-        <Link to="/Kanbas/Dashboard/Calendar" id="wd-dashboard-calendar-link" style={{ marginLeft: '5px'}}
-          className={`list-group-item border-0 ${isActive("/Kanbas/Dashboard/Calendar") ? "active" : "text-danger"}`}>
-          Calendar
-        </Link>
-
-        {/* Notifications Link */}
-        <Link to="/Kanbas/Dashboard/Notifications" id="wd-dashboard-notifications-link" style={{ marginLeft: '5px'}}
-          className={`list-group-item border-0 ${isActive("/Kanbas/Dashboard/Notifications") ? "active" : "text-danger"}`}>
-          Notifications
-        </Link>
-
-        {/* Messages Link */}
-        <Link to="/Kanbas/Dashboard/Messages" id="wd-dashboard-messages-link" style={{ marginLeft: '5px'}}
-          className={`list-group-item border-0 ${isActive("/Kanbas/Dashboard/Messages") ? "active" : "text-danger"}`}>
-          Messages
-        </Link>
-
+      {/* Dashboard Text-Based Sidebar (Dynamically Mapped) */}
+      <div id="wd-dashboard-navigation" className="wd list-group fs-5 rounded-0 bg-white d-none d-md-block" style={{ width: '150px' }}>
+        {dashboardLinks.map((link, index) => (
+          <Link
+            to={link.path}
+            key={index}
+            id={`wd-dashboard-${link.label.toLowerCase().replace(/\s+/g, '-')}-link`}
+            style={{ marginLeft: '5px' }}
+            className={`list-group-item border-0 ${isActive(link.path) ? "active" : "text-danger"}`}
+          >
+            {link.label}
+          </Link>
+        ))}
       </div>
-      
     </div>
   );
 }

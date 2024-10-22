@@ -1,12 +1,12 @@
 import { useParams, Link } from "react-router-dom";
-import { useState } from "react";
+// import { useState } from "react";
 import { BsGripVertical, BsSearch } from "react-icons/bs";
 import { FaEdit, FaCheckCircle } from "react-icons/fa";
 import { IoEllipsisVertical } from "react-icons/io5";
-import * as db from "../../Database"; // Import assignments from the database
+import * as db from "../../Database";
 
 export default function Assignments() {
-  const { cid } = useParams(); // Get course ID from the URL
+  const { cid } = useParams();
   const assignments = db.assignments.filter((assignment) => assignment.course === cid);
 
   return (

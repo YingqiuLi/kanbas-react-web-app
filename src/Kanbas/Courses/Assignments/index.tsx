@@ -1,17 +1,30 @@
-import { useParams, Link } from "react-router-dom";
-// import { useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import { BsGripVertical, BsSearch } from "react-icons/bs";
 import { FaEdit, FaCheckCircle } from "react-icons/fa";
 import { IoEllipsisVertical } from "react-icons/io5";
-import * as db from "../../Database";
 
-export default function Assignments() {
-  const { cid } = useParams();
-  const assignments = db.assignments.filter((assignment) => assignment.course === cid);
+interface Assignment {
+  _id: string;
+  title: string;
+  course: string;
+  modules: string;
+  availability: string;
+  due: string;
+  points: number;
+  description: string;
+}
+
+interface AssignmentsProps {
+  assignments: Assignment[];
+  setAssignments: React.Dispatch<React.SetStateAction<Assignment[]>>;
+}
+
+export default function Assignments({ assignments, setAssignments }: AssignmentsProps) {
+  const { cid } = useParams(); // Get course ID from the URL
+  const filteredAssignments = assignments.filter((assignment) => assignment.course === cid);
 
   return (
     <div id="wd-assignments-container" style={{ marginLeft: '30px' }}>
-      {/* Assignment Controls */}
       <div className="d-flex justify-content-between align-items-center mb-3">
         <div className="input-group" style={{ width: "500px" }}>
           <span className="input-group-text">
@@ -31,11 +44,10 @@ export default function Assignments() {
       </div>
 
       <ul id="wd-assignment-list" className="list-group rounded-0">
-        {assignments.map((assignment) => (
+        {filteredAssignments.map((assignment) => (
           <li key={assignment._id} className="wd-assignment-item list-group-item p-3">
             <div className="d-flex align-items-center" style={{ marginLeft: '10px' }}>
               <BsGripVertical className="me-2 fs-4" style={{ cursor: 'pointer' }} />
-              {/* Link to Assignment Editor with course ID and assignment ID */}
               <Link
                 to={`/Kanbas/Courses/${cid}/Assignments/${assignment._id}/Editor`}
                 className="text-success"
@@ -45,7 +57,7 @@ export default function Assignments() {
               <div>
                 <div><strong>{assignment.title}</strong></div>
                 <div style={{ display: 'flex', alignItems: 'center' }}>
-                  <span style={{ color: 'red' }}>{assignment.modules}</span> | <span style={{ fontWeight: 'bold', color: 'black' }}> {assignment.availability}</span>
+                  <span style={{ color: 'red' }}>{assignment.modules}</span> | <span style={{ fontWeight: 'bold', color: 'black' }}>{assignment.availability}</span>
                 </div>
                 <div>Due {assignment.due} | {assignment.points} pts</div>
               </div>

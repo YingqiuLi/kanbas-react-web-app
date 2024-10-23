@@ -1,6 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import * as db from "../../Database"; // Import assignments from the database
 
 // Define the assignment type
 interface Assignment {
@@ -14,26 +13,25 @@ interface Assignment {
   description: string;
 }
 
-export default function AssignmentEditor() {
-  const { cid, aid } = useParams(); // Retrieve course ID and assignment ID from the URL
+export default function AssignmentEditor({ assignments, setAssignments }: { assignments: Assignment[], setAssignments: (assignments: Assignment[]) => void }) {
+  const { cid, aid } = useParams();
   const [assignment, setAssignment] = useState<Assignment | null>(null);
-  const [updatedAssignments, setUpdatedAssignments] = useState(db.assignments); // State to manage assignments
-  const navigate = useNavigate(); // For navigating programmatically
+  const navigate = useNavigate();
 
   // Fetch the assignment from the database based on the course and assignment ID
   useEffect(() => {
-    const selectedAssignment = db.assignments.find(
+    const selectedAssignment = assignments.find(
       (assignment: Assignment) => assignment._id === aid && assignment.course === cid
     );
     setAssignment(selectedAssignment || null);
-  }, [cid, aid]);
+  }, [cid, aid, assignments]);
 
   const handleSave = () => {
     if (assignment) {
-      const updatedAssignmentList = updatedAssignments.map((a) =>
+      const updatedAssignmentList = assignments.map((a) =>
         a._id === assignment._id ? assignment : a
       );
-      setUpdatedAssignments(updatedAssignmentList); // Update the local state
+      setAssignments(updatedAssignmentList); // Update the assignments in state
 
       // Navigate back to the Assignments page for the course
       navigate(`/Kanbas/Courses/${cid}/Assignments`);
@@ -67,7 +65,7 @@ export default function AssignmentEditor() {
         id="wd-description"
         className="form-control mb-3"
         style={{ width: '100%', height: '150px' }}
-        defaultValue={assignment.description}
+        value={assignment.description}
         onChange={(e) => setAssignment({ ...assignment, description: e.target.value })}
       />
       
@@ -82,7 +80,7 @@ export default function AssignmentEditor() {
               <input
                 id="wd-points"
                 type="number"
-                defaultValue={assignment.points}
+                value={assignment.points}
                 className="form-control"
                 style={{ width: '50%' }}
                 onChange={(e) => setAssignment({ ...assignment, points: Number(e.target.value) })}
@@ -117,9 +115,10 @@ export default function AssignmentEditor() {
                 id="wd-display-grade-as"
                 className="form-select"
                 style={{ width: '50%' }}
+                value="Percentage"
               >
-                <option>Percentage</option>
-                <option>Points</option>
+                <option value="Percentage">Percentage</option>
+                <option value="Points">Points</option>
               </select>
             </td>
           </tr>
@@ -130,10 +129,10 @@ export default function AssignmentEditor() {
               <label htmlFor="wd-submission-type">Submission Type</label>
             </td>
             <td>
-              <select id="wd-submission-type" className="form-select" style={{ width: '50%' }}>
-                <option>Online</option>
-                <option>Paper</option>
-                <option>No Submission</option>
+              <select id="wd-submission-type" className="form-select" style={{ width: '50%' }} value="Online">
+                <option value="Online">Online</option>
+                <option value="Paper">Paper</option>
+                <option value="No Submission">No Submission</option>
               </select>
               <br />
               <div style={{ marginTop: '10px' }}>
@@ -168,9 +167,9 @@ export default function AssignmentEditor() {
               <label htmlFor="wd-assign-to">Assign to</label>
             </td>
             <td>
-              <select id="wd-assign-to" className="form-select" style={{ width: '50%' }}>
-                <option>Everyone</option>
-                <option>Selected</option>
+              <select id="wd-assign-to" className="form-select" style={{ width: '50%' }} value="Everyone">
+                <option value="Everyone">Everyone</option>
+                <option value="Selected">Selected</option>
               </select>
             </td>
           </tr>
@@ -184,7 +183,7 @@ export default function AssignmentEditor() {
               <input
                 id="wd-due-date"
                 type="date"
-                defaultValue={assignment.due}
+                value={assignment.due}
                 className="form-control"
                 style={{ width: '50%' }}
                 onChange={(e) => setAssignment({ ...assignment, due: e.target.value })}

@@ -158,5 +158,37 @@
       "height": "180",
       "alt": "Democratic Education"
     }
+  },
+  {
+    "_id": "RS111",
+    "name": "Introduction to Honor of Kings",
+    "number": "EDU202",
+    "startDate": "2023-01-10",
+    "endDate": "2023-05-15",
+    "department": "Game",
+    "credits": 4,
+    "description": "This course provides an introduction to the popular mobile game 'Honor of Kings.' Students will explore the game's design principles, mechanics, and its cultural impact in the gaming industry. The course covers gameplay strategies, character development, and the balance of teamwork in competitive environments. By the end of the course, students will understand the game's core elements and its influence on modern mobile esports.",
+    "image": {
+      "src": "/images/honor-of-kings.jpg",
+      "width": "100%",
+      "height": "180",
+      "alt": "Honor of Kings"
+    }
+  },
+  {
+    "_id": "RS112",
+    "name": "Advanced Strategy in Honor of Kings",
+    "number": "EDU203",
+    "startDate": "2023-09-05",
+    "endDate": "2023-12-15",
+    "department": "Game",
+    "credits": 3,
+    "description": "This course delves deeper into advanced strategies in 'Honor of Kings,' focusing on high-level gameplay tactics. Students will learn about meta-game analysis, optimal team compositions, role specialization, and adapting to evolving patches and updates. Emphasis is placed on mastering specific heroes, map control, and decision-making in competitive play.",
+    "image": {
+      "src": "/images/honor-of-kings-strategy.jpg",
+      "width": "100%",
+      "height": "180",
+      "alt": "Advanced Strategy in Honor of Kings"
+    }
   }
 ]

@@ -1,13 +1,36 @@
 import { FaUserCircle } from "react-icons/fa";
 import { useParams } from "react-router-dom";
+import { useSelector } from 'react-redux';
 import * as db from "../../Database";
+
+interface User {
+  _id: string;
+  firstName: string;
+  lastName: string;
+  loginId: string;
+  section: string;
+  role: string;
+  lastActivity: string;
+  totalActivity: string;
+}
+
+interface Enrollment {
+  _id: string;
+  user: string;
+  course: string;
+  role: string;
+}
 
 export default function PeopleTable() {
   const { cid } = useParams();
-  const { users, enrollments } = db;
+  const { users } = db;
+  const { enrollments } = useSelector((state: any) => state.enrollmentsReducer);
 
-  const enrolledUsers = users.filter((user) =>
-    enrollments.some((enrollment) => enrollment.user === user._id && enrollment.course === cid)
+  const enrolledUsers = users.filter((user: User) =>
+    enrollments.some(
+      (enrollment: Enrollment) =>
+        enrollment.user === user._id && enrollment.course === cid
+    )
   );
 
   return (
@@ -24,7 +47,7 @@ export default function PeopleTable() {
           </tr>
         </thead>
         <tbody>
-          {enrolledUsers.map((user) => (
+          {enrolledUsers.map((user: User) => (
             <tr key={user._id}>
               <td className="wd-full-name text-nowrap">
                 <FaUserCircle className="me-2 fs-1 text-secondary" />

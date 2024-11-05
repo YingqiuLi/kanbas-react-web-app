@@ -1,7 +1,9 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { BsGripVertical, BsSearch } from "react-icons/bs";
-import { FaEdit, FaCheckCircle } from "react-icons/fa";
+import { FaEdit, FaCheckCircle, FaTrash } from "react-icons/fa";
 import { IoEllipsisVertical } from "react-icons/io5";
+import { useSelector, useDispatch } from 'react-redux';
+import { deleteAssignment } from './reducer';
 
 interface Assignment {
   _id: string;
@@ -14,14 +16,21 @@ interface Assignment {
   description: string;
 }
 
-interface AssignmentsProps {
-  assignments: Assignment[];
-  setAssignments: React.Dispatch<React.SetStateAction<Assignment[]>>;
-}
-
-export default function Assignments({ assignments, setAssignments }: AssignmentsProps) {
+export default function Assignments() {
   const { cid } = useParams(); // Get course ID from the URL
-  const filteredAssignments = assignments.filter((assignment) => assignment.course === cid);
+  const assignments = useSelector((state: any) => state.assignmentsReducer.assignments);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const filteredAssignments = assignments.filter(
+    (assignment: Assignment) => assignment.course === cid
+  );
+
+  const handleDelete = (assignmentId: string) => {
+    if (window.confirm('Are you sure you want to delete this assignment?')) {
+      dispatch(deleteAssignment(assignmentId));
+    }
+  };
 
   return (
     <div id="wd-assignments-container" style={{ marginLeft: '30px' }}>
@@ -38,31 +47,70 @@ export default function Assignments({ assignments, setAssignments }: Assignments
           />
         </div>
         <div>
-          <button id="wd-add-assignment-group" className="btn btn-secondary me-2">+ Group</button>
-          <button id="wd-add-assignment" className="btn btn-danger text-white">+ Assignment</button>
+          <button id="wd-add-assignment-group" className="btn btn-secondary me-2">
+            + Group
+          </button>
+          <button
+            id="wd-add-assignment"
+            className="btn btn-danger text-white"
+            onClick={() => navigate(`/Kanbas/Courses/${cid}/Assignments/new`)}
+          >
+            + Assignment
+          </button>
         </div>
       </div>
 
       <ul id="wd-assignment-list" className="list-group rounded-0">
-        {filteredAssignments.map((assignment) => (
-          <li key={assignment._id} className="wd-assignment-item list-group-item p-3">
-            <div className="d-flex align-items-center" style={{ marginLeft: '10px' }}>
-              <BsGripVertical className="me-2 fs-4" style={{ cursor: 'pointer' }} />
+        {filteredAssignments.map((assignment: Assignment) => (
+          <li
+            key={assignment._id}
+            className="wd-assignment-item list-group-item p-3"
+          >
+            <div
+              className="d-flex align-items-center"
+              style={{ marginLeft: '10px' }}
+            >
+              <BsGripVertical
+                className="me-2 fs-4"
+                style={{ cursor: 'pointer' }}
+              />
               <Link
                 to={`/Kanbas/Courses/${cid}/Assignments/${assignment._id}/Editor`}
                 className="text-success"
               >
-                <FaEdit className="me-2 fs-4" style={{ cursor: 'pointer' }} />
+                <FaEdit
+                  className="me-2 fs-4"
+                  style={{ cursor: 'pointer' }}
+                />
               </Link>
               <div>
-                <div><strong>{assignment.title}</strong></div>
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                  <span style={{ color: 'red' }}>{assignment.modules}</span> | <span style={{ fontWeight: 'bold', color: 'black' }}>{assignment.availability}</span>
+                <div>
+                  <strong>{assignment.title}</strong>
                 </div>
-                <div>Due {assignment.due} | {assignment.points} pts</div>
+                <div
+                  style={{ display: 'flex', alignItems: 'center' }}
+                >
+                  <span style={{ color: 'red' }}>{assignment.modules}</span> |{' '}
+                  <span
+                    style={{ fontWeight: 'bold', color: 'black' }}
+                  >
+                    {assignment.availability}
+                  </span>
+                </div>
+                <div>
+                  Due {assignment.due} | {assignment.points} pts
+                </div>
               </div>
-              <div className="ms-auto d-flex align-items-center" style={{ height: '100%' }}>
+              <div
+                className="ms-auto d-flex align-items-center"
+                style={{ height: '100%' }}
+              >
                 <FaCheckCircle className="text-success me-2 fs-4" />
+                <FaTrash
+                  className="text-danger me-2 fs-4"
+                  style={{ cursor: 'pointer' }}
+                  onClick={() => handleDelete(assignment._id)}
+                />
                 <IoEllipsisVertical className="fs-4" />
               </div>
             </div>

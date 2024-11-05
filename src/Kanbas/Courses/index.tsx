@@ -6,16 +6,15 @@ import Home from "./Home";
 import { Navigate, Route, Routes, useParams, useLocation } from "react-router";
 import { FaAlignJustify } from "react-icons/fa";
 import PeopleTable from "./People/Table";
-import { useState } from "react"; // Import useState
-import * as db from "../Database"; // Import the assignments database
+//import { useState } from "react";
+import * as db from "../Database";
 
 export default function Courses() {
   const { cid } = useParams();
   const course = db.courses.find((course) => course._id === cid);
   const { pathname } = useLocation();
 
-  // Manage assignments state here
-  const [assignments, setAssignments] = useState(db.assignments);
+  //const [assignments, setAssignments] = useState(db.assignments);
 
   return (
     <div id="wd-courses">

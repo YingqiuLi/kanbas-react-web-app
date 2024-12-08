@@ -6,17 +6,15 @@ export default function ObjectStateVariable() {
       <h2>Object State Variables</h2>
       <pre>{JSON.stringify(person, null, 2)}</pre>
       <input
-        className="form-control"
         defaultValue={person.name}
         onChange={(e) => setPerson({ ...person, name: e.target.value })}
-
+        className="form-control"
       />
       <input
-        className="form-control"
         defaultValue={person.age}
         onChange={(e) => setPerson({ ...person,
                                      age: parseInt(e.target.value) })}
-   
+        className="form-control"
       />
       <hr/>
     </div>

@@ -1,0 +1,238 @@
+[{
+  "_id": {
+    "$oid": "67553567edc6b79289a8e417"
+  },
+  "questionId": "Q101-1",
+  "title": "Purpose of JavaScript",
+  "points": 10,
+  "type": "Multiple Choice",
+  "questionText": "What is JavaScript used for in web development?",
+  "options": [
+    "Styling web pages",
+    "Adding interactivity to web pages",
+    "Managing databases",
+    "Server-side scripting"
+  ],
+  "correctOption": 1
+},
+{
+  "_id": {
+    "$oid": "67553567edc6b79289a8e418"
+  },
+  "questionId": "Q101-2",
+  "title": "Variable Declaration",
+  "points": 10,
+  "type": "Multiple Choice",
+  "questionText": "Which of the following is a valid way to declare a variable in JavaScript?",
+  "options": [
+    "var myVar;",
+    "let myVar;",
+    "const myVar;",
+    "All of the above"
+  ],
+  "correctOption": 3
+},
+{
+  "_id": {
+    "$oid": "67553567edc6b79289a8e419"
+  },
+  "questionId": "Q101-3",
+  "title": "DOM Full Form",
+  "points": 10,
+  "type": "Fill in the Blank",
+  "questionText": "What does 'DOM' stand for?",
+  "blank": [
+    "Document Object Model",
+    "document object model"
+  ]
+},
+{
+  "_id": {
+    "$oid": "67553567edc6b79289a8e41a"
+  },
+  "questionId": "Q101-4",
+  "title": "JavaScript Functions",
+  "points": 10,
+  "type": "Fill in the Blank",
+  "questionText": "A function in JavaScript is defined using the keyword ________.",
+  "blank": [
+    "function"
+  ]
+},
+{
+  "_id": {
+    "$oid": "67553567edc6b79289a8e41b"
+  },
+  "questionId": "Q101-5",
+  "title": "Equality Operator",
+  "points": 10,
+  "type": "Multiple Choice",
+  "questionText": "Which operator checks for both value and type equality in JavaScript?",
+  "options": [
+    "==",
+    "===",
+    "!=",
+    "!=="
+  ],
+  "correctOption": 1
+},
+{
+  "_id": {
+    "$oid": "67553567edc6b79289a8e41c"
+  },
+  "questionId": "Q102-1",
+  "title": "What is a Data Structure?",
+  "points": 10,
+  "type": "Multiple Choice",
+  "questionText": "What is a data structure?",
+  "options": [
+    "A format for organizing and storing data",
+    "A type of algorithm",
+    "A programming language",
+    "None of the above"
+  ],
+  "correctOption": 0
+},
+{
+  "_id": {
+    "$oid": "67553567edc6b79289a8e41d"
+  },
+  "questionId": "Q102-2",
+  "title": "FIFO Data Structure",
+  "points": 10,
+  "type": "Multiple Choice",
+  "questionText": "Which data structure uses FIFO (First In First Out)?",
+  "options": [
+    "Stack",
+    "Queue",
+    "Array",
+    "Tree"
+  ],
+  "correctOption": 1
+},
+{
+  "_id": {
+    "$oid": "67553567edc6b79289a8e41e"
+  },
+  "questionId": "Q102-3",
+  "title": "Array Access Complexity",
+  "points": 10,
+  "type": "Fill in the Blank",
+  "questionText": "The time complexity of accessing an element in an array by index is ________.",
+  "blank": [
+    "O(1)",
+    "constant time"
+  ]
+},
+{
+  "_id": {
+    "$oid": "67553567edc6b79289a8e41f"
+  },
+  "questionId": "Q102-4",
+  "title": "Linked List Nodes",
+  "points": 10,
+  "type": "Fill in the Blank",
+  "questionText": "Each node in a linked list contains two fields: data and ________.",
+  "blank": [
+    "pointer",
+    "next"
+  ]
+},
+{
+  "_id": {
+    "$oid": "67553567edc6b79289a8e420"
+  },
+  "questionId": "Q102-5",
+  "title": "Stack Operations",
+  "points": 10,
+  "type": "Multiple Choice",
+  "questionText": "Which operation is used to remove the top element of a stack?",
+  "options": [
+    "Push",
+    "Pop",
+    "Peek",
+    "Insert"
+  ],
+  "correctOption": 1
+},
+{
+  "_id": {
+    "$oid": "67553567edc6b79289a8e421"
+  },
+  "questionId": "Q103-1",
+  "title": "Merge Sort Complexity",
+  "points": 10,
+  "type": "Fill in the Blank",
+  "questionText": "The time complexity of the merge sort algorithm is ________.",
+  "blank": [
+    "O(n log n)",
+    "n log n"
+  ]
+},
+{
+  "_id": {
+    "$oid": "67553567edc6b79289a8e422"
+  },
+  "questionId": "Q103-2",
+  "title": "Dynamic Programming",
+  "points": 10,
+  "type": "Fill in the Blank",
+  "questionText": "Dynamic programming is a technique used to solve problems by breaking them into ________ subproblems.",
+  "blank": [
+    "overlapping",
+    "smaller"
+  ]
+},
+{
+  "_id": {
+    "$oid": "67553567edc6b79289a8e423"
+  },
+  "questionId": "Q103-3",
+  "title": "Greedy Algorithm",
+  "points": 10,
+  "type": "Multiple Choice",
+  "questionText": "Which problem-solving approach makes the optimal choice at each stage?",
+  "options": [
+    "Dynamic programming",
+    "Greedy algorithm",
+    "Backtracking",
+    "Branch and bound"
+  ],
+  "correctOption": 1
+},
+{
+  "_id": {
+    "$oid": "67553567edc6b79289a8e424"
+  },
+  "questionId": "Q103-4",
+  "title": "Heap Sort",
+  "points": 10,
+  "type": "Fill in the Blank",
+  "questionText": "Heap sort uses a ________ to sort elements.",
+  "blank": [
+    "binary heap",
+    "heap"
+  ]
+},
+{
+  "_id": {
+    "$oid": "675538f9edc6b79289a8e426"
+  },
+  "questionId": "Q102-TF2",
+  "title": "Array Access Time",
+  "points": 5,
+  "type": "True/False",
+  "questionText": "Accessing an element by index in an array has a time complexity of O(1).",
+  "answer": true
+},
+{
+  "_id": {
+    "$oid": "6755390dedc6b79289a8e428"
+  },
+  "questionId": "Q102-TF3",
+  "title": "Stack Operations",
+  "points": 5,
+  "type": "True/False",
+  "questionText": "The `push` operation in a stack removes the top element.",
+  "answer": false
+}]

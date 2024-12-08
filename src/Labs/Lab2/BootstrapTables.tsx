@@ -1,5 +1,6 @@
 export default function BootstrapTables() {
-  return (<><div id="wd-css-styling-tables">
+    return (
+        <div id="wd-css-styling-tables">
   <h2>Tables</h2>
   <table className="table">
     <thead>
@@ -14,8 +15,7 @@ export default function BootstrapTables() {
       <tr className="table-success"><td colSpan={3}>Average</td><td>90</td></tr>
     </tfoot>
   </table>
-</div>
-<div id="wd-css-responsive-tables">
+  <div id="wd-css-responsive-tables">
   <h2>Responsive tables</h2>
   <div className="table-responsive">
     <table className="table">
@@ -35,5 +35,7 @@ export default function BootstrapTables() {
     </table>
   </div>
 </div>
-</>)
+</div>
+
+    );
 }

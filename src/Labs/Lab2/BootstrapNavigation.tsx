@@ -1,6 +1,6 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 export default function BootstrapNavigation() {
-  return (<><div id="wd-css-navigating-with-tabs">
+    return(
+        <div id="wd-css-navigating-with-tabs">
   <h2>Tabs</h2>
   <ul className="nav nav-tabs">
     <li className="nav-item">
@@ -16,16 +16,14 @@ export default function BootstrapNavigation() {
         <a className="nav-link disabled" href="#">Disabled</a>
     </li>
   </ul>
-</div>
-
-<div id="wd-css-navigating-with-cards">
+  <div id="wd-css-navigating-with-cards">
   <h2>
     Cards
   </h2>
   <div className="card"
        style={{ width: "18rem" }}>
     <img src="images/stacked.jpg"
-         className="card-img-top" alt=""/>
+         className="card-img-top" />
     <div className="card-body">
       <h5 className="card-title">
           Stacking Starship
@@ -40,5 +38,6 @@ export default function BootstrapNavigation() {
   </div>
 </div>
 
-</>)
+</div>
+    );
 }

@@ -1,6 +1,7 @@
-/* eslint-disable jsx-a11y/alt-text */
+import "./index.css";
 export default function Float() {
-  return (<div id="wd-float-divs">
+    return(
+        <div id="wd-float-divs">
  <h2>Float</h2>
  <div>
    <div className="wd-float-left wd-dimension-portrait wd-bg-color-yellow">
@@ -13,5 +14,7 @@ export default function Float() {
      src="https://www.staradvertiser.com/wp-content/uploads/2021/08/web1_Starship-gap2.jpg"/>
    <div className="wd-float-done"></div>
  </div>
-</div>)
+</div>
+
+    );
 }

@@ -1,5 +1,7 @@
+import "./index.css";
 export default function Margins() {
-  return (<div id="wd-css-margins">
+    return (
+        <div id="wd-css-margins">
   <h2>Margins</h2>
   <div
     className="wd-margin-bottom 
@@ -26,5 +28,7 @@ export default function Margins() {
       wd-fg-color-white">
     Margin all around
   </div>
-</div>)
+</div>
+
+    );
 }

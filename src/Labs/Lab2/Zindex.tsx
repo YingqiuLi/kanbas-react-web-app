@@ -1,5 +1,7 @@
+import "./index.css";
 export default function Zindex() {
-  return (<div id="wd-z-index">
+    return(
+        <div id="wd-z-index">
   <h2>Z index</h2>
   <div className="wd-pos-relative">
     <div className="wd-pos-absolute-10-10 
@@ -16,5 +18,7 @@ export default function Zindex() {
       Square
     </div>
   </div><br /><br /><br /><br /><br /><br /><br />
-</div>)
+</div>
+
+    );
 }

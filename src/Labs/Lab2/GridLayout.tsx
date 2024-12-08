@@ -1,5 +1,7 @@
+import "./index.css";
 export default function GridLayout() {
-  return (<div id="wd-css-grid-layout">
+    return(
+        <div id="wd-css-grid-layout">
   <div id="wd-css-left-right-layout">
     <h2>Grid layout</h2>
     <div className="wd-grid-row">
@@ -37,5 +39,7 @@ export default function GridLayout() {
       <p>This is the right sidebar</p>
     </div>
   </div>
-</div>)
+</div>
+
+    );
 }

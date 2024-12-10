@@ -67,5 +67,27 @@ export const findQuizzesForCourse = async (courseId: string) => {
 
 export const findQuestionsForQuiz = async (quizId: string) => {
   const response = await axios.get(`${COURSES_API}/${quizId}/questions`);
+  console.log(JSON.stringify(response.data)+"1111111");
   return response.data;
 }
+
+export const addNewQuiz = async (quiz: any) => {
+  console.log(`${COURSES_API}/${quiz.course}/questions/addQuiz`);
+  const response = await axiosWithCredentials.post(
+    `${COURSES_API}/${quiz.course}/questions/addQuiz`,
+    quiz
+  );
+  
+  return response.data;
+}
+
+export const deleteQuiz = async (quizId: string) => {
+  console.log("deleteQuiz", quizId);
+  const { data } = await axiosWithCredentials.delete(`${COURSES_API}/deleteQuiz/${quizId}`);
+  return data;
+};
+
+export const updateQuizById = async (quiz: any) => {
+  const { data } = await axiosWithCredentials.put(`${COURSES_API}/updateQuiz/${quiz._id}`, quiz);
+  return data;
+};

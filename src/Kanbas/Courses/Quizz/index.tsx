@@ -1,5 +1,5 @@
 import { BsGripVertical, BsPlus, BsSearch } from "react-icons/bs";
-import { useNavigate, useParams } from "react-router";
+import { useLocation, useNavigate, useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import QuizItem from "./QuizItem";
 import { findQuizzesForCourse } from "../client";
@@ -13,14 +13,17 @@ export default function Quizz() {
   const quizzes = useSelector((state: any) => state.quizzesReducer?.quizzes ?? []);
 
   const dispatch = useDispatch();
+
   const fetchQuizzes = async () => {
     const quizzes = await findQuizzesForCourse(cid as string);
     // alert(JSON.stringify(quizzes));
     dispatch(setQuizzes(quizzes));
   };
+  const location = useLocation();
+
   useEffect(() => {
     fetchQuizzes();
-  }, []);
+  },[]);
 
   // const filteredQuizzes = quizzes.filter((quiz: any) => quiz.course === cid);
   const { currentUser } = useSelector((state: any) => state.accountReducer);
@@ -44,7 +47,9 @@ export default function Quizz() {
           {isFaculty && (
             <button
               className="btn btn-danger text-white"
-              onClick={() => navigate(`/Kanbas/Courses/${cid}/Quizzes/New`)}
+              onClick={() => {console.log(`/Kanbas/Courses/${cid}/Quizzes/New`)
+                navigate(`/Kanbas/Courses/${cid}/Quizzes/New`)
+            }}
             >
               <BsPlus className="me-1" /> Quiz
             </button>
@@ -62,7 +67,7 @@ export default function Quizz() {
           </div>
           <ul className="wd-quizzes-list list-group rounded-0">
             {quizzes.map((quiz: any) => (
-              <QuizItem key={quiz.quizId} quiz={quiz} isFaculty={isFaculty} quizId={quiz.quizId}/>
+              <QuizItem key={quiz._id} quiz={quiz} isFaculty={isFaculty} quizId={quiz._id}/>
             ))}
           </ul>
         </li>

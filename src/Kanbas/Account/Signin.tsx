@@ -10,6 +10,10 @@ export default function Signin() {
   const navigate = useNavigate();
   const signin = async () => {
     const user =  await client.signin(credentials);
+
+    console.log(JSON.stringify(user)+"aaaaaaa");
+    localStorage.setItem('user', JSON.stringify(user));
+    
     if (!user) return;
     dispatch(setCurrentUser(user));
     navigate("/Kanbas/Dashboard");

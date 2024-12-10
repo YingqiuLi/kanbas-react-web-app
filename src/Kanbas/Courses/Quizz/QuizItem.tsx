@@ -4,6 +4,8 @@ import { useNavigate, useParams } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 import ReactDOM from "react-dom";
 import { useState } from "react";
+import { deleteQuiz, findQuizzesForCourse } from "../client";
+import { setQuizzes } from "./reducer";
 
 interface QuizItemProps {
   quiz: any;
@@ -16,8 +18,6 @@ export default function QuizItem({ quiz, isFaculty, quizId }: QuizItemProps) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { currentUser } = useSelector((state: any) => state.accountReducer);
-  //alert(quiz + "");
-  // alert(quiz._id);
   localStorage.setItem("isFaculty", isFaculty ? "true" : "false");
 
   const [showMenu, setShowMenu] = useState(false);
@@ -36,6 +36,8 @@ export default function QuizItem({ quiz, isFaculty, quizId }: QuizItemProps) {
 
   const handleDelete = () => {
     dispatch({ type: "DELETE_QUIZ", payload: quiz.quizId });
+    deleteQuiz(quiz._id);
+    window.location.reload();
   };
 
   const handlePublishToggle = () => {
@@ -47,9 +49,10 @@ export default function QuizItem({ quiz, isFaculty, quizId }: QuizItemProps) {
   };
 
   const handleOnClick = () => {
-    localStorage.setItem("quizId", quiz.quizId);
+    localStorage.setItem("quizId", quiz._id);
     
-    navigate(`/Kanbas/Courses/${cid}/Quizzes/${quiz.quizId}`);
+    // navigate(`/Kanbas/Courses/${cid}/Quizzes/${quiz.quizId}`);
+    navigate(`/Kanbas/Courses/${cid}/Quizzes/${quiz._id}`);
   };
 
   const quizStatus =

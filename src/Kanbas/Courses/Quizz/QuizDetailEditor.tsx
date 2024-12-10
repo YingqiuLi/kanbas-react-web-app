@@ -3,20 +3,24 @@ import { useNavigate, useParams } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 import { addQuiz, updateQuiz } from "./reducer";
 import { Link } from "react-router-dom";
+import { addNewQuiz, updateQuizById } from "../client";
 
 export default function QuizEditor() {
   const { cid, qid } = useParams();
+  console.log(cid, "this is cid");
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const quizzes = useSelector((state: any) => state.quizzesReducer.quizzes);
 
-  const quizData = quizzes.find((q: any) => q.quizId === qid) || {
+  const quizData = quizzes.find((q: any) => q._id === qid) || {
     title: "",
     description: "",
+    courseId: "",
     points: 0,
     availableDate: "",
     dueDate: "",
     untilDate: "",
+    numberOfQuestions: 0,
     type: "Graded Quiz",
     multipleAttempts: false,
     shuffleAnswers: false,
@@ -27,11 +31,16 @@ export default function QuizEditor() {
   const [quiz, setQuiz] = useState(quizData);
 
   const handleSave = () => {
+    console.log(qid, "this is qid");
     if (!qid || qid === "New") {
       dispatch(addQuiz({ ...quiz, course: cid }));
+      console.log(quiz, "this is a quiz");
+      addNewQuiz({ ...quiz, course: cid });
     } else {
       dispatch(updateQuiz({ ...quiz, quizId: qid, course: cid }));
+      updateQuizById({ ...quiz, course: cid });
     }
+    //updateQuizById({ ...quiz, course: cid });
     navigate(`/Kanbas/Courses/${cid}/Quizzes`);
   };
 

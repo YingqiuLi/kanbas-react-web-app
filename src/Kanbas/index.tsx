@@ -35,7 +35,14 @@ export default function Kanbas() {
     }));
   };
 
-  const { currentUser } = useSelector((state: any) => state.accountReducer);
+  let { currentUser } = useSelector((state: any) => state.accountReducer);
+  if (currentUser == undefined || currentUser == null){
+    console.log("current user is null");
+    let user = localStorage.getItem("user");
+    if (user != null){
+      currentUser = JSON.parse(user);
+    }
+  }
   const findCoursesForUser = async () => {
     try {
       console.log(currentUser._id, "++");
@@ -57,10 +64,11 @@ export default function Kanbas() {
         if (enrolledCourses.find((c: any) => c._id === course._id)) {
           return { ...course, enrolled: true };
         } else {
-          return course;
+          return { ...course, enrolled: false };
         }
       });
       setCourses(courses);
+      console.log(courses);
     } catch (error) {
       console.error(error);
     }

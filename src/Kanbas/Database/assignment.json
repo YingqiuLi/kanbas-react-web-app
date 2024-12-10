@@ -1,7 +1,7 @@
 [
  {
       "title": "Propulsion Assignment",
-      "course": "RS101",
+      "courseId": "67584e637a17b9f1a6f5cf53",
       "description": "The assignment is available online. Submit a link to the landing page of your Web application running on Netlify. The landing page should include the following:\n- Your full name and section\n- Links to each of the lab assignments\n- Link to the Kanbas application\n- Links to all relevant source code repositories\nThe Kanbas application should include a link to navigate back to the landing page",
       "points": 50,
       "availableDate": "2024-05-09",
@@ -9,7 +9,7 @@
     },
     {
       "title": "Combustion Analysis",
-      "course": "RS101",
+      "courseId": "67584e637a17b9f1a6f5cf53",
       "description": "The assignment is available online. Perform a detailed analysis of the combustion process in a jet engine using provided datasets.",
       "points": 60,
       "availableDate": "2024-05-05",
@@ -17,7 +17,7 @@
     },
     {
       "title": "Nozzle Design Project",
-      "course": "RS101",
+      "courseId": "67584e637a17b9f1a6f5cf53",
       "description": "The assignment is available online. Design a nozzle using CAD tools and perform simulations to evaluate its efficiency.",
       "points": 80,
       "availableDate": "2024-05-10",
@@ -25,7 +25,7 @@
     },
     {
       "title": "Aerodynamics Quiz",
-      "course": "RS102",
+      "courseId": "67584e637a17b9f1a6f5cf54",
       "description": "A timed quiz focused on key principles of aerodynamics, including lift and drag equations.",
       "points": 20,
       "availableDate": "2024-04-15",
@@ -33,7 +33,7 @@
     },
     {
       "title": "Flow Analysis",
-      "course": "RS102",
+      "courseId": "67584e637a17b9f1a6f5cf54",
       "description": "Conduct a computational flow analysis using the given simulation software and submit a report on your findings.",
       "points": 40,
       "availableDate": "2024-05-01",
@@ -41,7 +41,7 @@
     },
     {
       "title": "Heating Analysis",
-      "course": "RS102",
+      "courseId": "67584e637a17b9f1a6f5cf54",
       "description": "Analyze heat distribution in a high-speed flow scenario and provide optimization suggestions.",
       "points": 50,
       "availableDate": "2024-05-06",
@@ -49,7 +49,7 @@
     },
     {
       "title": "Structural Design Task",
-      "course": "RS103",
+      "courseId": "67584e637a17b9f1a6f5cf55",
       "description": "Design a lightweight structural component for a spacecraft and evaluate its stress tolerances.",
       "points": 70,
       "availableDate": "2024-04-20",
@@ -57,7 +57,7 @@
     },
     {
       "title": "Orbital Calculations",
-      "course": "RS103",
+      "courseId": "67584e637a17b9f1a6f5cf55",
       "description": "Calculate orbital parameters for a satellite mission using the provided scenarios.",
       "points": 30,
       "availableDate": "2024-05-01",
@@ -65,7 +65,7 @@
     },
     {
       "title": "Systems Engineering Exam",
-      "course": "RS103",
+      "courseId": "67584e637a17b9f1a6f5cf55",
       "description": "An open-book exam covering systems engineering concepts, with an emphasis on integration and testing phases.",
       "points": 100,
       "availableDate": "2024-05-10",

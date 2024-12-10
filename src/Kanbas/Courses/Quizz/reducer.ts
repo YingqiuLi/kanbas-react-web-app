@@ -15,35 +15,40 @@ const quizzesSlice = createSlice({
     addQuiz: (state, { payload: quiz }) => {
       const newQuiz = {
         // _id: new Date().getTime().toString(),
-        quizId: quiz.quizId,
         title: quiz.title,
-        course: quiz.course,
-        availableDate: quiz.availableDate,
-        availableUntilDate: quiz.availableUntilDate,
-        dueDate: quiz.dueDate,
+        description: quiz.description,
+        courseId: quiz.courseId,
         points: quiz.points,
+        availableDate: quiz.availableDate,
+        untilDate: quiz.untilDate,
+        dueDate: quiz.dueDate,
         numberOfQuestions: quiz.numberOfQuestions,
+        type: quiz.type,
+        multipleAttempts: quiz.multipleAttempts,
+        shuffleAnswers: quiz.shuffleAnswers,
+        timeLimit: quiz.timeLimit,
+        assignmentGroup: quiz.assignmentGroup
       };
       state.quizzes = [...state.quizzes, newQuiz];
     },
     deleteQuiz: (state, { payload: quizId }) => {
-      state.quizzes = state.quizzes.filter((q) => q.quizId !== quizId);
+      state.quizzes = state.quizzes.filter((q) => q._id !== quizId);
     },
     updateQuiz: (state, { payload: quiz }) => {
       state.quizzes = state.quizzes.map((q) =>
-        q.quizId === quiz._id
+        q._id === quiz._id
           ? quiz
           : q
       ); 
     },
     editQuiz: (state, { payload: quizId }) => {
       state.quizzes = state.quizzes.map((q) =>
-        q.quizId === quizId ? { ...q, editing: true } : q
+        q._id === quizId ? { ...q, editing: true } : q
       );
     },
     setQuizScore: (state, { payload: { quizId, score } }) => {
       state.quizzes = state.quizzes.map((q) =>
-        q.quizId === quizId ? { ...q, score } : q
+        q._id === quizId ? { ...q, score } : q
       );
     },
   },

@@ -4,19 +4,23 @@ import { useSelector } from "react-redux";
 
 export default function QuizDetails() {
   // const { qid } = useParams();
+  const { cid, quizId } = useParams();
   const navigate = useNavigate();
   const qid = localStorage.getItem("quizId");
-  const quiz = useSelector((state: any) =>
-    state.quizzesReducer.quizzes.find((q: any) => q.quizId === qid)
+  const quiz = useSelector((state: any) => {
+    return state.quizzesReducer.quizzes.find((q: any) => q._id === qid)
+  }
   );
 
   const handlePreview = () => {
     // navigate(`/Kanbas/Courses/${quiz.course}/Quizzes/${quiz._id}/Preview`);
-    navigate(`/Kanbas/Courses/${quiz.course}/Quizzes/${qid}/Preview`);
+
+    // navigate(`/Kanbas/Courses/${quiz.course}/Quizzes/${qid}/Preview`);
+    navigate(`/Kanbas/Courses/${cid}/Quizzes/${qid}/Preview`);
   };
 
   const handleEdit = () => {
-    navigate(`/Kanbas/Courses/${quiz.course}/Quizzes/${quiz.quizId}/Edit`);
+    navigate(`/Kanbas/Courses/${cid}/Quizzes/${quiz._id}/Edit`);
   };
 
   const handleTakeQuiz = () => {

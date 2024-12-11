@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Corners from "../Labs/Lab2/Corners";
 
 export default function Dashboard({
   courses,

@@ -13,7 +13,7 @@ export const createCourse = async (course: any) => {
 };
 
 export const deleteCourse = async (id: string) => {
-  console.log("deleteCourse", id);
+  console.log(`${COURSES_API}/${id}`, "++++");
   const { data } = await axiosWithCredentials.delete(`${COURSES_API}/${id}`);
   return data;
 };
@@ -67,7 +67,7 @@ export const findQuizzesForCourse = async (courseId: string) => {
 
 export const findQuestionsForQuiz = async (quizId: string) => {
   const response = await axios.get(`${COURSES_API}/${quizId}/questions`);
-  console.log(JSON.stringify(response.data)+"1111111");
+  // console.log(JSON.stringify(response.data)+"1111111");
   return response.data;
 }
 

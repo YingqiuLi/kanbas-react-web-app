@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { findQuestionsForQuiz } from '../client';
 import { title } from 'process';
+import { FaPencilAlt } from "react-icons/fa";
 
 interface Question {
     _id: string;
@@ -45,7 +46,7 @@ export default function QuizPreview() {
             // console.log(questions, "this is questions");
             const list = [];
             for (let i = 0; i < questionList.length; i++) {
-                list.push({ _id: questionList[i]._id, title: questionList[i].title, points: questionList[i].points, type: questionList[i].type, questionText: questionList[i].questionText, options: questionList[i].options, correctOption: questionList[i].correctOption});
+                list.push({ _id: questionList[i]._id, title: questionList[i].title, points: questionList[i].points, type: questionList[i].type, questionText: questionList[i].questionText, options: questionList[i].options, correctOption: questionList[i].correctOption });
                 // console.log(questionList[i]._id, "this is id");
             }
             setQuestions(list);
@@ -55,7 +56,7 @@ export default function QuizPreview() {
 
     useEffect(() => {
         fetchQuestions();
-        
+
     }, []);
 
     useEffect(() => {
@@ -174,7 +175,7 @@ export default function QuizPreview() {
 
     return (
         <div className="container mt-4">
-            <div className="card mb-4">
+            <div className="card mb-4" style={{ backgroundColor: "lightorange", color: '#d05129' }}>
                 <div className="card-body bg-light">
                     <h2>Q1 - Sample Quiz</h2>
                     <p>This is a preview of the quiz.</p>
@@ -196,7 +197,7 @@ export default function QuizPreview() {
             ))}
 
             {!showResults && (
-                <button className="btn btn-primary" onClick={handleSubmit}>
+                <button className="btn btn-primary btn-danger" onClick={handleSubmit}>
                     Submit Quiz
                 </button>
             )}
@@ -206,15 +207,24 @@ export default function QuizPreview() {
                     <div className="card-body">
                         <h3>Quiz Results</h3>
                         <p>Your Score: {score}</p>
-                        <button className="btn btn-secondary" onClick={() => navigate(-1)}>
+                        <button className="btn btn-secondary btn-danger" onClick={() => navigate(-1)}>
                             Return to Quiz List
                         </button>
                     </div>
                 </div>
             )}
 
-            <div>
-                Keep Editing this Quiz
+            <div className="card mb-4" style={{ marginTop: "20px" , color: '#d05129' }}>
+                <div className="card-body bg-light">
+                <FaPencilAlt className="me-2" />
+                    <button style={{color: '#d05129'}}
+                        className="btn btn-link text-decoration-none p-0"
+                        // change navigation
+                        onClick={() => navigate(`/edit-quiz/${quizId}`)}
+                    >
+                        <h4 className="mb-0">Keep Editing this Quiz</h4>
+                    </button>
+                </div>
             </div>
         </div>
     );

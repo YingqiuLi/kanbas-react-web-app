@@ -18,7 +18,7 @@ interface Props {
   initialQuestion?: Question;
 }
 
-const QuestionEditor = ({ quizId, onSave, onCancel, initialQuestion }: Props) => {
+const QuizQuestionEditor = ({ quizId, onSave, onCancel, initialQuestion }: Props) => {
   const [question, setQuestion] = useState<Question>(initialQuestion || {
     _id: String(Date.now()),
     title: '',
@@ -195,4 +195,4 @@ const QuestionEditor = ({ quizId, onSave, onCancel, initialQuestion }: Props) =>
   );
 };
 
-export default { QuestionEditor };
+export default { QuizQuestionEditor };

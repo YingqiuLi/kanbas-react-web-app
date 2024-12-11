@@ -10,6 +10,7 @@ import Session from "./Account/Session";
 import * as userClient from "./Account/client";
 import { useSelector } from "react-redux";
 import * as courseClient from "./Courses/client";
+import Corners from "../Labs/Lab2/Corners";
 
 export default function Kanbas() {
   const [courses, setCourses] = useState<any[]>([]);
@@ -47,7 +48,6 @@ export default function Kanbas() {
     try {
       console.log(currentUser._id, "++");
       const courses = await userClient.findCoursesForUser(currentUser._id);
-      console.log("Courses for user", courses);
       setCourses(courses);
     } catch (error) {
       //console.error(error);

@@ -57,7 +57,7 @@ export const findAssignmentsForCourse = async (courseId: string) => {
 
 export const findUsersForCourse = async (courseId: string) => {
   const response = await axios.get(`${COURSES_API}/${courseId}/users`);
-  return response.data;
+  return response.data.filter((x: null) => x !== null);
 };
 
 export const findQuizzesForCourse = async (courseId: string) => {
@@ -88,6 +88,18 @@ export const deleteQuiz = async (quizId: string) => {
 };
 
 export const updateQuizById = async (quiz: any) => {
+  console.log(quiz, "quiz000000");
   const { data } = await axiosWithCredentials.put(`${COURSES_API}/updateQuiz/${quiz._id}`, quiz);
+  console.log(`${COURSES_API}/updateQuiz/${quiz._id}`, "this is api");
   return data;
 };
+
+export const createQuestionForQuiz = async (question: any) => {
+  console.log(`${COURSES_API}/${question.quizId}/questions/new`);
+  const response = await axiosWithCredentials.post(
+    `${COURSES_API}/${question.quizId}/questions/new`,
+    question
+  );
+  
+  return response.data;
+}

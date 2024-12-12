@@ -5,9 +5,10 @@ import { addQuiz, updateQuiz } from "./reducer";
 import { Link } from "react-router-dom";
 import { addNewQuiz, updateQuizById } from "../client";
 
-export default function QuizEditor() {
+export default function QuizDetailEditor() {
   const { cid, qid } = useParams();
-  console.log(cid, "this is cid");
+  // console.log(cid, "this is cid");
+  console.log(qid, "this is qid");
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const quizzes = useSelector((state: any) => state.quizzesReducer.quizzes);
@@ -31,16 +32,13 @@ export default function QuizEditor() {
   const [quiz, setQuiz] = useState(quizData);
 
   const handleSave = () => {
-    console.log(qid, "this is qid");
     if (!qid || qid === "New") {
       dispatch(addQuiz({ ...quiz, course: cid }));
-      console.log(quiz, "this is a quiz");
       addNewQuiz({ ...quiz, course: cid });
     } else {
       dispatch(updateQuiz({ ...quiz, quizId: qid, course: cid }));
       updateQuizById({ ...quiz, course: cid });
     }
-    //updateQuizById({ ...quiz, course: cid });
     navigate(`/Kanbas/Courses/${cid}/Quizzes`);
   };
 

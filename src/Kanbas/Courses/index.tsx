@@ -9,11 +9,12 @@ import { FaAlignJustify } from "react-icons/fa";
 import PeopleTable from "./People/Table";
 import Quizz from "./Quizz";
 import QuizDetails from "./Quizz/QuizDetail";
-import QuizEditor from "./Quizz/QuizDetailEditor";
 import { useEffect, useState } from "react";
 import * as client from "./client";
 import QuizPreview from "./Quizz/QuizPreview";
 import QuizQuestions from "./Quizz/QuizQuestions";
+import QuizDetailEditor from "./Quizz/QuizDetailEditor";
+import QuizQuestionEditor from "./Quizz/QuizQuestionEditor";
 
 export default function Courses() {
   const { pathname } = useLocation();
@@ -31,7 +32,11 @@ export default function Courses() {
   useEffect(() => {
     fetchUsers();
   }, [cid]);
-  
+  console.warn(cid);
+  console.warn(users);
+  if (users.length == 0) {
+    return (<></>);
+  }
   return (
     <div id="wd-courses">
       <h2 className="text-danger">
@@ -50,10 +55,11 @@ export default function Courses() {
         <Route path="Assignments/:aid" element={<AssignmentEditor />} />
         <Route path="Quizzes" element={<Quizz />} />
         <Route path="Quizzes/:qid" element={<QuizDetails />} />
-        <Route path="Quizzes/:qid/Edit" element={<QuizEditor />} />
-        <Route path="Quizzes/New" element={<QuizEditor />} />
+        <Route path="Quizzes/:qid/Edit" element={<QuizDetailEditor />} />
+        <Route path="Quizzes/New" element={<QuizDetailEditor />} />
         <Route path="Quizzes/:quizId/preview" element={<QuizPreview />} />
         <Route path="Quizzes/:quizId/questions" element={<QuizQuestions />} />
+        <Route path="Quizzes/:quizId/Questions/New/:type" element={<QuizQuestionEditor />} />
         <Route path="People" element={<PeopleTable users={users}/>} />
       </Routes>
       </div>

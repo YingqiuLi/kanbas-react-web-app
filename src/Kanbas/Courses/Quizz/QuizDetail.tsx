@@ -24,7 +24,7 @@ export default function QuizDetails() {
   };
 
   const handleTakeQuiz = () => {
-    navigate(`/Kanbas/Courses/${quiz.course}/Quizzes/${quiz.quizId}/questions`);
+    navigate(`/Kanbas/Courses/${cid}/Quizzes/${qid}/Preview`);
   };
 
   let isFaculty = localStorage.getItem("isFaculty") === "true";
